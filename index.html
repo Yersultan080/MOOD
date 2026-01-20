@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOOD Сұлулық • Күтім • Сенімділік | Салон красоты</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #d4a5c3;
+            --secondary-color: #7a4a6f;
+            --accent-color: #f8e1e7;
+            --dark-color: #3a2d3a;
+            --light-color: #fef9fb;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            line-height: 1.2;
+        }
+        
+        .logo span {
+            font-size: 14px;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--secondary-color);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(122, 74, 111, 0.85), rgba(212, 165, 195, 0.8)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 60px;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--secondary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+        }
+        
+        /* Services Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .services {
+            padding: 60px 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .service-image-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .service-divider {
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 0 auto 20px;
+        }
+        
+        .view-images-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .view-images-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* New Services with Images */
+        .new-services {
+            background-color: #f9f5f8;
+            padding: 80px 0;
+        }
+        
+        .service-category {
+            margin-bottom: 80px;
+        }
+        
+        .service-category:last-child {
+            margin-bottom: 0;
+        }
+        
+        .category-title {
+            text-align: center;
+            font-size: 32px;
+            color: var(--secondary-color);
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .category-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .service-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-item {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-item-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .service-item-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-item-title {
+            font-size: 22px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-item-title i {
+            margin-right: 15px;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+        
+        .service-item-desc {
+            color: #666;
+            line-height: 1.7;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+        
+        .service-item-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+            margin: 15px 0;
+        }
+        
+        .service-price {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        
+        /* WhatsApp Booking Button */
+        .whatsapp-booking {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .whatsapp-booking i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        .whatsapp-booking:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 50px auto;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal-header {
+            padding: 25px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 28px;
+            margin: 0;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            line-height: 1;
+            transition: transform 0.3s;
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .service-description {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .service-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: var(--accent-color);
+            border-radius: 8px;
+        }
+        
+        .detail-item i {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+        
+        .service-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .modal-image:hover {
+            transform: scale(1.03);
+        }
+        
+        .modal-footer {
+            padding: 20px 30px;
+            background-color: #f9f9f9;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--accent-color);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: var(--secondary-color);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-right: 20px;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .contact-details p {
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 20px;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* 2GIS Map Section */
+        .map-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+        
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 500px;
+            position: relative;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .map-placeholder i {
+            font-size: 60px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .map-placeholder h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .map-link {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .map-link:hover {
+            background-color: var(--primary-color);
+        }
+        
+        /* WhatsApp Contact Section */
+        .whatsapp-contact {
+            padding: 80px 0;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .whatsapp-box {
+            background-color: #f9f5f8;
+            padding: 50px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .whatsapp-icon {
+            font-size: 60px;
+            color: #25D366;
+            margin-bottom: 20px;
+        }
+        
+        .whatsapp-box h3 {
+            font-size: 32px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .whatsapp-box p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        
+        .whatsapp-btn-large {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 30px;
+            font-size: 20px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .whatsapp-btn-large i {
+            margin-right: 15px;
+            font-size: 24px;
+        }
+        
+        .whatsapp-btn-large:hover {
+            background-color: #128C7E;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .footer-logo h3 {
+            font-size: 26px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .footer-contact {
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 600px;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 10px;
+            font-size: 17px;
+        }
+        
+        .footer-contact a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-contact a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            width: 100%;
+            text-align: center;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .services-grid,
+            .service-items {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+            
+            .logo {
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 25px;
+                right: 20px;
+            }
+            
+            .hero {
+                padding: 80px 20px;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .mobile-menu {
+                display: none;
+                width: 100%;
+                text-align: center;
+                padding: 20px 0;
+                background-color: white;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            }
+            
+            .mobile-menu.active {
+                display: block;
+            }
+            
+            .mobile-menu ul {
+                flex-direction: column;
+                list-style: none;
+            }
+            
+            .mobile-menu ul li {
+                margin: 0;
+            }
+            
+            .mobile-menu ul li a {
+                text-decoration: none;
+                color: var(--dark-color);
+                font-size: 18px;
+                display: block;
+                padding: 15px 0;
+                transition: background-color 0.3s;
+            }
+            
+            .mobile-menu ul li a:hover {
+                background-color: var(--accent-color);
+                color: var(--secondary-color);
+            }
+            
+            .service-content,
+            .service-item-content {
+                padding: 25px 20px;
+            }
+            
+            .map-container {
+                height: 400px;
+            }
+            
+            .whatsapp-box {
+                padding: 30px 20px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 20px auto;
+            }
+            
+            .service-images {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 20px;
+            }
+            
+            .hero h2 {
+                font-size: 28px;
+            }
+            
+            .section-title h2,
+            .category-title {
+                font-size: 26px;
+            }
+            
+            .service-card h3,
+            .service-item-title {
+                font-size: 22px;
+            }
+            
+            .contact-info h3 {
+                font-size: 24px;
+            }
+            
+            .services-grid,
+            .service-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-title {
+                font-size: 22px;
+            }
+            
+            .service-images {
+                grid-template-columns: 1fr;
+            }
+            
+            .whatsapp-box h3 {
+                font-size: 26px;
+            }
+            
+            .whatsapp-btn-large {
+                padding: 15px 30px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>MOOD Сұлулық • Күтім • Сенімділік</h1>
+                <span>Шаш | Макияж | Маникюр | Педикюр | Бет күтімі | Массаж</span>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="#home">Басты</a></li>
+                    <li><a href="#services">Қызметтер</a></li>
+                    <li><a href="#map">Карта</a></li>
+                    <li><a href="#whatsapp">Жазылу</a></li>
+                    <li><a href="#contact">Байланыс</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+   
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>MOOD Сұлулық салонына қош келдіңіз!</h2>
+            <p>Біз сізге кәсіби сұлулық пен денсаулық қызметтерін ұсынамыз. Әрбір клиентке жеке көңіл бөліп, ең жоғары сапаны қамтамасыз етеміз.</p>
+            <a href="#whatsapp" class="btn">WhatsApp арқылы жазылу</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Біздің қызметтер</h2>
+                <p>Сұлулық пен сауықтырудың толық спектрі</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card" data-service="hair">
+                    <div class="service-image-container">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Шаштараз" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3>Шаштараз</h3>
+                        <div class="service-divider"></div>
+                        <p>Соңғы сәнді шаштараздық әдістер, оңтайландырылған шаш моделдері, бояу және емдеу қызметтері</p>
+                        <button class="view-images-btn">Суреттерді көру</button>
+                        <a href="https://wa.me/77715112683?text=Сәлеметсіз бе! Мен шаштараз қызметіне жазылғым келеді." class="whatsapp-booking" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp арқылы жазылу
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="makeup">
+                    <div class="service-image-container">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" alt="Макияж" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Макияж</h3>
+                        <div class="service-divider"></div>
+                        <p>Күнделікті, кешкі және арнайы оқиғаларға арналған кәсіби макияж. Дәрумендерге бай сапалы косметика</p>
+                        <button class="view-images-btn">Суреттерді көру</button>
+                        <a href="https://wa.me/77715112683?text=Сәлеметсіз бе! Мен макияж қызметіне жазылғым келеді." class="whatsapp-booking" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp арқылы жазылу
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="manicure">
+                    <div class="service-image-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAwXOklg8AA2ZmP_uqjU0yxSm1HE3Qn5wNAw&s" alt="Манікюр" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3>Манікюр & Педикюр</h3>
+                        <div class="service-divider"></div>
+                        <p>Кәсіби манікюр және педікюр, аяқ терісін емдеу, массаж және релаксация</p>
+                        <button class="view-images-btn">Суреттерді көру</button>
+                        <a href="https://wa.me/77715112683?text=Сәлеметсіз бе! Мен манікюр/педикюр қызметіне жазылғым келеді." class="whatsapp-booking" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp арқылы жазылу
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2GIS Map Section -->
+    <section class="map-section" id="map">
+        <div class="container">
+            <div class="section-title">
+                <h2>Біздің орналасқан жеріміз</h2>
+                <p>Салонды табу оңай - 2GIS картасында көріңіз</p>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>MOOD Сұлулық салоны</h3>
+                    <p>Мекенжай: Ақкент 58 дом</p>
+                    <p>2GIS картасында біздің салонды көру үшін төмендегі сілтемені басыңыз:</p>
+                    <a href="https://go.2gis.com/HJD69" class="map-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> 2GIS картасында ашу
+                    </a>
+                    <p style="margin-top: 20px; font-size: 14px; color: #888;">Егер карта жүктелмесе, жоғарыдағы сілтемені басып 2GIS сайтында көріңіз</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <h3>Бізге жету жолдары:</h3>
+                <p>Ақкент ауданы, 58 үй. Негізгі кіреберіс алдында паркинг алаңы бар.</p>
+                <p>Жақын автобус аялдамасы: "Ақкент" аялдамасы (100 метр)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Contact Section -->
+    <section class="whatsapp-contact" id="whatsapp">
+        <div class="container">
+            <div class="whatsapp-box">
+                <div class="whatsapp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>WhatsApp арқылы жазылу</h3>
+                <p>Қызметке жазылу үшін WhatsApp арқылы бізге хабарласыңыз. Біз сізге қолайлы уақытты таңдауға көмектесеміз және барлық сұрақтарыңызға жауап береміз.</p>
+                <p>Жазылу үшін төмендегі түймені басыңыз:</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 30px;">
+                    <a href="https://wa.me/77715112683?text=Сәлеметсіз бе! Мен MOOD салонына жазылғым келеді. Қызмет түрін таңдауға көмектесіңізші." class="whatsapp-btn-large" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Ермекке жазылу (+7 771 511 2683)
+                    </a>
+                    
+                    <a href="https://wa.me/77087502799?text=Сәлеметсіз бе! Мен MOOD салонына жазылғым келеді. Қызмет түрін таңдауға көмектесіңізші." class="whatsapp-btn-large" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Меруетке жазылу (+7 708 750 2799)
+                    </a>
+                </div>
+                
+                <div style="margin-top: 30px; padding: 20px; background-color: white; border-radius: 10px;">
+                    <h4>Жазылу кезінде мынаны көрсетіңіз:</h4>
+                    <ul style="text-align: left; margin-top: 10px; padding-left: 20px;">
+                        <li>Аты-жөніңіз</li>
+                        <li>Таңдаған қызметіңіз</li>
+                        <li>Қолайлы күні мен уақытыңыз</li>
+                        <li>Телефон нөміріңіз</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Бізбен байланысыңыз</h2>
+                <p>Біз сіздің сұрақтарыңызға жауап беруге дайынбыз</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Байланыс ақпараты</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <p><strong>Мекенжай:</strong></p>
+                            <p>Ақкент 58 дом</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <p><strong>Телефондар:</strong></p>
+                            <p>Ермек: +7 771 511 2683</p>
+                            <p>Мерует: +7 708 750 2799</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <p><strong>Жұмыс уақыты:</strong></p>
+                            <p>Дүйсенбі - Сенбі: 9:00 - 20:00</p>
+                            <p>Жексенбі: 10:00 - 18:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://instagram.com/mood_sululyq.salon" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/77715112683" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://t.me/ermek_mood" target="_blank" title="Telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="https://go.2gis.com/HJD69" target="_blank" title="2GIS">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Жұмыс кестесі</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <p><strong>Дүйсенбі:</strong> 9:00 - 20:00</p>
+                            <p><strong>Сейсенбі:</strong> 9:00 - 20:00</p>
+                            <p><strong>Сәрсенбі:</strong> 9:00 - 20:00</p>
+                            <p><strong>Бейсенбі:</strong> 9:00 - 20:00</p>
+                            <p><strong>Жұма:</strong> 9:00 - 20:00</p>
+                            <p><strong>Сенбі:</strong> 9:00 - 20:00</p>
+                            <p><strong>Жексенбі:</strong> 10:00 - 18:00</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; padding: 20px; background-color: white; border-radius: 10px;">
+                        <h4>Ескерту:</h4>
+                        <p>Жазылу WhatsApp арқылы жүзеге асырылады. Қызмет көрсету алдында біз сізбен хабарласып, уақытыңызды растаймыз.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <h3>MOOD Сұлулық • Күтім • Сенімділік</h3>
+                <p>Шаш | Макияж | Маникюр | Педикюр | Бет күтімі | Массаж | Кірпік жасату</p>
+            </div>
+            
+            <div class="footer-contact">
+                <p>Мекенжай: Ақкент 58 дом, Алматы</p>
+                <p>Телефон: +7 771 511 2683 (Ермек) | +7 708 750 2799 (Мерует)</p>
+                <p>Instagram: <a href="https://instagram.com/mood_sululyq.salon" target="_blank">@mood_sululyq.salon</a></p>
+                <p>2GIS: <a href="https://go.2gis.com/HJD69" target="_blank">2GIS картасында көру</a></p>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 MOOD Сұлулық • Күтім • Сенімділік салоны. Барлық құқықтар қорғалған.</p>
+                <p style="margin-top: 10px;">Жазылу: WhatsApp арқылы | Байланыс: +7 771 511 2683</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Service Modals -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalServiceTitle">Қызмет атауы</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalServiceDescription" class="service-description">
+                    Қызметтің толық сипаттамасы
+                </div>
+                
+                <div class="service-details">
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Уақыт:</strong>
+                            <p id="modalServiceTime">30-60 минут</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-wallet"></i>
+                        <div>
+                            <strong>Бағасы:</strong>
+                            <p id="modalServicePrice">5,000 тг</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-user-md"></i>
+                        <div>
+                            <strong>Маман:</strong>
+                            <p id="modalServiceSpecialist">Кәсіби маман</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>Қызмет суреттері:</h4>
+                <div class="service-images" id="modalServiceImages">
+                    <!-- Images will be added dynamically -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="https://wa.me/77715112683?text=Сәлеметсіз бе! Мен осы қызметке жазылғым келеді." class="whatsapp-btn-large" target="_blank" id="whatsappBookBtn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp арқылы жазылу
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Service data with images and details
+        const serviceData = {
+            // Main Services
+            'hair': {
+                title: 'Шаштараз',
+                description: 'Соңғы сәнді шаштараздық әдістер, оңтайландырылған шаш моделдері, бояу және емдеу қызметтері. Біз сіздің шашыңыздың типі мен бет пішініңізге сай ең сәнді стрижканы таңдауға көмектесеміз.',
+                time: '1-2 сағат',
+                price: '4,000-15,000 тг',
+                specialist: 'Ермек, Мерует',
+                images: [
+                    'https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                ]
+            },
+            'makeup': {
+                title: 'Макияж',
+                description: 'Күнделікті, кешкі және арнайы оқиғаларға арналған кәсіби макияж. Дәрумендерге бай сапалы косметика. Біз сізге сәйкес ең жақсы түстер мен техникаларды таңдаймыз.',
+                time: '30-60 минут',
+                price: '5,000-20,000 тг',
+                specialist: 'Мерует',
+                images: [
+                    'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                ]
+            },
+            'manicure': {
+                title: 'Манікюр & Педикюр',
+                description: 'Кәсіби манікюр және педікюр, аяқ терісін емдеу, массаж және релаксация. Біз сапалы материалдарды қолданып, тырнақтар мен теріге күтім көрсетеміз.',
+                time: '45-90 минут',
+                price: '5,000-12,000 тг',
+                specialist: 'Мерует',
+                images: [
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAwXOklg8AA2ZmP_uqjU0yxSm1HE3Qn5wNAw&s',
+                    'https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://www.mam4.ru/resize/710x-/https/www.mam4.ru/media/upload/user/132455/fa/1707738016388.jpg?h=Wu3Oq-ZCKHjnIC4dTPDA6Q'
+                ]
+            }
+        };
+
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+                    
+                    // Change icon
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (mobileMenu.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+                
+                // Close mobile menu when clicking on a link
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('active');
+                        const icon = mobileMenuBtn.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    });
+                });
+            }
+            
+            // Modal functionality
+            const modal = document.getElementById('serviceModal');
+            const closeModalBtn = document.getElementById('closeModal');
+            const whatsappBookBtn = document.getElementById('whatsappBookBtn');
+            
+            // Open modal when clicking on service cards
+            document.querySelectorAll('.service-card, .view-images-btn').forEach(element => {
+                element.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    // Get service ID from parent element if button was clicked
+                    let serviceId;
+                    if (this.classList.contains('view-images-btn')) {
+                        serviceId = this.closest('.service-card').dataset.service;
+                    } else {
+                        serviceId = this.dataset.service;
+                    }
+                    
+                    if (serviceId && serviceData[serviceId]) {
+                        openServiceModal(serviceId);
+                    }
+                });
+            });
+            
+            // Close modal when clicking X
+            closeModalBtn.addEventListener('click', closeModal);
+            
+            // Close modal when clicking outside modal
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Update WhatsApp link when booking from modal
+            function updateWhatsAppLink(serviceTitle) {
+                const message = `Сәлеметсіз бе! Мен "${serviceTitle}" қызметіне жазылғым келеді. Қолайлы уақытыңызды айтыңызшы.`;
+                whatsappBookBtn.href = `https://wa.me/77715112683?text=${encodeURIComponent(message)}`;
+            }
+            
+            function openServiceModal(serviceId) {
+                const service = serviceData[serviceId];
+                
+                // Set modal content
+                document.getElementById('modalServiceTitle').textContent = service.title;
+                document.getElementById('modalServiceDescription').textContent = service.description;
+                document.getElementById('modalServiceTime').textContent = service.time;
+                document.getElementById('modalServicePrice').textContent = service.price;
+                document.getElementById('modalServiceSpecialist').textContent = service.specialist;
+                
+                // Update WhatsApp link
+                updateWhatsAppLink(service.title);
+                
+                // Clear and add images
+                const imagesContainer = document.getElementById('modalServiceImages');
+                imagesContainer.innerHTML = '';
+                
+                service.images.forEach(imageUrl => {
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    img.alt = service.title;
+                    img.className = 'modal-image';
+                    imagesContainer.appendChild(img);
+                });
+                
+                // Show modal
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            }
+            
+            function closeModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add current year to copyright
+            const yearSpan = document.querySelector('.copyright');
+            if (yearSpan) {
+                const currentYear = new Date().getFullYear();
+                yearSpan.innerHTML = yearSpan.innerHTML.replace('2023', currentYear);
+            }
+            
+            // Add click handler for WhatsApp booking buttons
+            document.querySelectorAll('.whatsapp-booking').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Don't prevent default - let the link open
+                    // Just track the click if needed
+                    console.log('WhatsApp booking clicked');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
